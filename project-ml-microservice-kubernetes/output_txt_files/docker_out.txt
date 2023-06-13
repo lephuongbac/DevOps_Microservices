@@ -1,1 +1,156 @@
-<paste log output from Docker prediction, here>
+<3>WSL (2460) ERROR: UtilGetPpid:1244: Failed to parse: /proc/27/stat, content: 27 (su) S 0 0 0 34817 2438 4194560 300 0 0 0 0 0 0 0 20 0 1 0 152934 10391552 898 18446744073709551615 1 1 0 0 0 0 2147196671 3670016 16384 0 0 0 17 1 0 0 0 0 0 0 0 0 0 0 0 0 0
+Sending build context to Docker daemon  750.1kB
+Step 1/6 : FROM python:3.7.3-stretch
+ ---> 34a518642c76
+Step 2/6 : WORKDIR /app
+ ---> Using cache
+ ---> 09138c7083af
+Step 3/6 : COPY . /app
+ ---> a8ea70a8ca6d
+Step 4/6 : RUN pip install --upgrade --no-cache-dir pip &&     pip install --no-cache-dir -r requirements.txt
+ ---> Running in 90e521d083c1
+Collecting pip
+  Downloading https://files.pythonhosted.org/packages/08/e3/57d4c24a050aa0bcca46b2920bff40847db79535dc78141eb83581a52eb8/pip-23.1.2-py3-none-any.whl (2.1MB)
+Installing collected packages: pip
+  Found existing installation: pip 19.1.1
+    Uninstalling pip-19.1.1:
+      Successfully uninstalled pip-19.1.1
+Successfully installed pip-23.1.2
+Collecting Click==7.0 (from -r requirements.txt (line 1))
+  Downloading Click-7.0-py2.py3-none-any.whl (81 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 81.3/81.3 kB 977.7 kB/s eta 0:00:00
+Collecting Flask==1.0.2 (from -r requirements.txt (line 2))
+  Downloading Flask-1.0.2-py2.py3-none-any.whl (91 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 91.4/91.4 kB 5.3 MB/s eta 0:00:00
+Collecting itsdangerous==1.1.0 (from -r requirements.txt (line 3))
+  Downloading itsdangerous-1.1.0-py2.py3-none-any.whl (16 kB)
+Collecting Jinja2==2.10.3 (from -r requirements.txt (line 4))
+  Downloading Jinja2-2.10.3-py2.py3-none-any.whl (125 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 125.3/125.3 kB 3.8 MB/s eta 0:00:00
+Collecting MarkupSafe==1.1.1 (from -r requirements.txt (line 5))
+  Downloading MarkupSafe-1.1.1-cp37-cp37m-manylinux2010_x86_64.whl (33 kB)
+Collecting numpy==1.17.2 (from -r requirements.txt (line 6))
+  Downloading numpy-1.17.2-cp37-cp37m-manylinux1_x86_64.whl (20.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 20.3/20.3 MB 4.3 MB/s eta 0:00:00
+Collecting pandas==0.24.2 (from -r requirements.txt (line 7))
+  Downloading pandas-0.24.2-cp37-cp37m-manylinux1_x86_64.whl (10.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.1/10.1 MB 4.1 MB/s eta 0:00:00
+Collecting python-dateutil==2.8.0 (from -r requirements.txt (line 8))
+  Downloading python_dateutil-2.8.0-py2.py3-none-any.whl (226 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 226.8/226.8 kB 6.7 MB/s eta 0:00:00
+Collecting pytz==2019.3 (from -r requirements.txt (line 9))
+  Downloading pytz-2019.3-py2.py3-none-any.whl (509 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 509.2/509.2 kB 6.0 MB/s eta 0:00:00
+Collecting scikit-learn==0.20.3 (from -r requirements.txt (line 10))
+  Downloading scikit_learn-0.20.3-cp37-cp37m-manylinux1_x86_64.whl (5.4 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.4/5.4 MB 4.3 MB/s eta 0:00:00
+Collecting scipy==1.3.1 (from -r requirements.txt (line 11))
+  Downloading scipy-1.3.1-cp37-cp37m-manylinux1_x86_64.whl (25.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 25.2/25.2 MB 4.2 MB/s eta 0:00:00
+Collecting six==1.12.0 (from -r requirements.txt (line 12))
+  Downloading six-1.12.0-py2.py3-none-any.whl (10 kB)
+Collecting Werkzeug==0.16.0 (from -r requirements.txt (line 13))
+  Downloading Werkzeug-0.16.0-py2.py3-none-any.whl (327 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 327.3/327.3 kB 5.8 MB/s eta 0:00:00
+Collecting pylint==2.4.4 (from -r requirements.txt (line 14))
+  Downloading pylint-2.4.4-py3-none-any.whl (302 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 303.0/303.0 kB 6.4 MB/s eta 0:00:00
+Collecting astroid<2.4,>=2.3.0 (from pylint==2.4.4->-r requirements.txt (line 14))
+  Downloading astroid-2.3.3-py3-none-any.whl (205 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 205.7/205.7 kB 5.7 MB/s eta 0:00:00
+Collecting isort<5,>=4.2.5 (from pylint==2.4.4->-r requirements.txt (line 14))
+  Downloading isort-4.3.21-py2.py3-none-any.whl (42 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.3/42.3 kB 10.3 MB/s eta 0:00:00
+Collecting mccabe<0.7,>=0.6 (from pylint==2.4.4->-r requirements.txt (line 14))
+  Downloading mccabe-0.6.1-py2.py3-none-any.whl (8.6 kB)
+Collecting lazy-object-proxy==1.4.* (from astroid<2.4,>=2.3.0->pylint==2.4.4->-r requirements.txt (line 14))
+  Downloading lazy_object_proxy-1.4.3-cp37-cp37m-manylinux1_x86_64.whl (56 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 56.5/56.5 kB 7.7 MB/s eta 0:00:00
+Collecting wrapt==1.11.* (from astroid<2.4,>=2.3.0->pylint==2.4.4->-r requirements.txt (line 14))
+  Downloading wrapt-1.11.2.tar.gz (27 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting typed-ast<1.5,>=1.4.0 (from astroid<2.4,>=2.3.0->pylint==2.4.4->-r requirements.txt (line 14))
+  Downloading typed_ast-1.4.3-cp37-cp37m-manylinux1_x86_64.whl (743 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 743.4/743.4 kB 5.5 MB/s eta 0:00:00
+Building wheels for collected packages: wrapt
+  Building wheel for wrapt (setup.py): started
+  Building wheel for wrapt (setup.py): finished with status 'done'
+  Created wheel for wrapt: filename=wrapt-1.11.2-cp37-cp37m-linux_x86_64.whl size=71335 sha256=7b0297c64491ab21d87124981e928128894467212606fc6a9e3f4cbf3aae7425
+  Stored in directory: /tmp/pip-ephem-wheel-cache-tyjvo5ld/wheels/23/5f/62/304b411f20be41821465a82bc98baabc5e68c3cdd1eb99db71
+Successfully built wrapt
+Installing collected packages: wrapt, typed-ast, pytz, mccabe, Werkzeug, six, numpy, MarkupSafe, lazy-object-proxy, itsdangerous, isort, Click, scipy, python-dateutil, Jinja2, astroid, scikit-learn, pylint, pandas, Flask
+Successfully installed Click-7.0 Flask-1.0.2 Jinja2-2.10.3 MarkupSafe-1.1.1 Werkzeug-0.16.0 astroid-2.3.3 isort-4.3.21 itsdangerous-1.1.0 lazy-object-proxy-1.4.3 mccabe-0.6.1 numpy-1.17.2 pandas-0.24.2 pylint-2.4.4 python-dateutil-2.8.0 pytz-2019.3 scikit-learn-0.20.3 scipy-1.3.1 six-1.12.0 typed-ast-1.4.3 wrapt-1.11.2
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+Removing intermediate container 90e521d083c1
+ ---> 733b700a8ab2
+Step 5/6 : EXPOSE 80
+ ---> Running in d81ad43a57ee
+Removing intermediate container d81ad43a57ee
+ ---> 37d42440c742
+Step 6/6 : CMD ["python", "/app/app.py"]
+ ---> Running in 33b32cb57431
+Removing intermediate container 33b32cb57431
+ ---> 4d336325dd91
+Successfully built 4d336325dd91
+Successfully tagged ml-api:v1.0.0
+
+Use 'docker scan' to run Snyk tests against images to find vulnerabilities and learn how to fix them
+REPOSITORY                     TAG             IMAGE ID       CREATED              SIZE
+ml-api                         v1.0.0          4d336325dd91   1 second ago         1.19GB
+<none>                         <none>          9497d586a449   About a minute ago   1.19GB
+<none>                         <none>          dfaad6c68085   8 minutes ago        1.19GB
+docker-elk-setup               latest          866cb60d3674   5 weeks ago          1.2GB
+customer-main                  latest          0ee8800eac52   5 weeks ago          367MB
+<none>                         <none>          4721dc86a463   5 weeks ago          367MB
+jaegertracing/all-in-one       latest          a92326268e14   5 weeks ago          60.4MB
+outofcoffee/imposter-openapi   latest          bf10c3333cdb   5 weeks ago          384MB
+openpolicyagent/opa            latest          923659f1afba   6 weeks ago          69.5MB
+postgres                       latest          ceccf204404e   2 months ago         379MB
+docker-elk-elasticsearch       latest          cb3602857fb5   12 months ago        1.2GB
+docker-elk-logstash            latest          6adec1caf1df   12 months ago        748MB
+docker-elk-kibana              latest          12567964981a   12 months ago        752MB
+docker-elk-apm-server          latest          2cda3a85978c   12 months ago        232MB
+wurstmeister/kafka             latest          a692873757c0   12 months ago        468MB
+python                         3.7.3-stretch   34a518642c76   4 years ago          929MB
+postgres                       10.7            366d122d2cb2   4 years ago          230MB
+wurstmeister/zookeeper         latest          3f43f72cb283   4 years ago          510MB
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 292-047-210
+[2023-06-13 17:04:03,376] INFO in app: JSON payload:
+{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
+[2023-06-13 17:04:03,415] INFO in app: Inference payload DataFrame:
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2023-06-13 17:04:03,443] INFO in app: Scaling Payload:
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2023-06-13 17:04:03,453] INFO in app: Prediction Output: [20.35373177134412]
+172.17.0.1 - - [13/Jun/2023 17:04:03] "POST /predict HTTP/1.1" 200 -
+[2023-06-13 17:04:09,093] INFO in app: JSON payload: 
+{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
+[2023-06-13 17:04:09,106] INFO in app: Inference payload DataFrame:
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2023-06-13 17:04:09,115] INFO in app: Scaling Payload:
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2023-06-13 17:04:09,120] INFO in app: Prediction Output: [20.35373177134412]
+172.17.0.1 - - [13/Jun/2023 17:04:09] "POST /predict HTTP/1.1" 200 -
+[2023-06-13 17:04:09,894] INFO in app: JSON payload:
+{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
+[2023-06-13 17:04:09,905] INFO in app: Inference payload DataFrame:
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2023-06-13 17:04:09,913] INFO in app: Scaling Payload:
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2023-06-13 17:04:09,917] INFO in app: Prediction Output: [20.35373177134412]
+172.17.0.1 - - [13/Jun/2023 17:04:09] "POST /predict HTTP/1.1" 200 -
